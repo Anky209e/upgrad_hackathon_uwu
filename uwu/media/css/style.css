@@ -117,6 +117,7 @@ html {
     height: 0;
     border-bottom: 1px solid transparent;
     overflow: hidden;
+    /* opacity: 90%; */
 }
 
 #menu ul {
@@ -124,6 +125,7 @@ html {
     padding: 0;
     letter-spacing: 0.4em;
 }
+
 
 #menu li:first-child {
     margin-top: 0;
@@ -144,7 +146,7 @@ html {
 
 #menu a:hover {
     letter-spacing: 0.5em;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 #menu.open {
@@ -153,9 +155,13 @@ html {
     background: #f3581b;
     border-bottom: 1px solid black;
 }
+.gap{
+    margin-top: 100px;
+}
 
 .space {
     letter-spacing: 0;
+    margin-top: 200px;
 }
 
 .content {
@@ -421,13 +427,33 @@ textarea {
     justify-content: center;
     align-items: center;
 }
+.centered2{
+    width: 100vw;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* height: 70vh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .centered input{
     background-color: black;
     color: white;
     margin: 0px 250px;
     border-radius: 10px;
 }
+.centered2 input{
+    background-color: black;
+    color: white;
+    margin: 0px 250px;
+    border-radius: 10px;
+}
 .centered input:hover{
+    color: black;
+    background-color: white;
+}
+.centered2 input:hover{
     color: black;
     background-color: white;
 }
@@ -484,6 +510,10 @@ textarea {
 
 .model h1:hover span:nth-child(3)::after {
     content: 'nion';
+}
+.fix{
+    text-align: center;
+    /* margin: 0 50%; */
 }
 
 @-webkit-keyframes fadeInUp {

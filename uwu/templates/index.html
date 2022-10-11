@@ -21,11 +21,8 @@
             </div>
             <div id="menu">
                 <ul>
-                    <li><a>Hom<span class="space">e</span></a></li>
-                    <li><a>Abou<span class="space">t</span></a></li>
-                    <li><a>Wor<span class="space">k</span></a></li>
-                    <li><a>Blo<span class="space">g</span></a></li>
-                    <li><a>Contac<span class="space">t</span></a></li>
+                    <li><a class="gap" >Hom<span class="space">e</span></a></li>
+                    <li><a class="gap" >Upcomin<span class="space">g ...</span></a></li>
                 </ul>
             </div>
         </div>
@@ -80,32 +77,35 @@
 
             </section>
 
-            
+            <div class="centered">
                 <form action="" method="post">
                     {%csrf_token%}
-            <div class="centered"></div>
+            
                     <label for="news">Enter News Here</label>
                     <br>
                     <textarea name="news" id="" rows="2" minlength="50" placeholder="Type here..." required>{{news}}</textarea>
-
                     <br>
                     <input type="submit" value="Submit">
                 </form>
             </div>
-            
+            <div class="centered2">
                 {% if prediction %}
                 <div class="prediction">
                     {{prediction.0}}
                     <progress value="{{prediction.1}}" max="100"></progress> 
                 </div>
-
+            </div>
+            <div class="fix">
                 <form action="/retrain/" method="post">
                     {% csrf_token %}
                     <input type="hidden" name="news" value="{{news}}">
                     Was the prediction correct?
                     <input type="checkbox" name="correct">
+            </div>
+            <div class="centered2">
                     <input type="submit" value="Submit">
                 </form>
+            </div>
                 {% endif %}
             
 
