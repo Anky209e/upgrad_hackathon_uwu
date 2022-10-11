@@ -32,12 +32,25 @@ oov_tok = "<OOV>"
 training_size = 20000
 
 def is_trainable():
-    pass
+    with open('data/retrain_news.json','r') as f:
+        datastore = json.load(f)
+    if (datastore["fake_targets"] >= 50) and (datastore["real_targets"] >= 50):
+        return True
+    return False
+    
 
 def get_retrain_data(input,target):
-    
-    with open('data_pr.json','r') as f:
+    with open('data/retrain_news.json','r') as f:
         datastore = json.load(f)
+
+    datastore["inputs"].append(input)
+    datastore["target"].append(target)
+    datastore["fake_targets"]+=1
+    datastore["real_targets"]+=1
+    json_object = json.dumps(datastore, indent=4)
+
+    with open("data/retrain_news.json", "w") as outfile:
+        outfile.write(json_object)
 
 
 def predict(text):
