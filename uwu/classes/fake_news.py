@@ -21,8 +21,8 @@ labels = datastore["targets"]
 
 
 tokenizer.fit_on_texts(sentences)
-
-model = load_model("weights/fake_news_99.h5")
+with tf.device('/cpu:0'):
+    model = load_model("weights/fake_news_99.h5")
 vocab_size = 10000
 embedding_dim = 16
 max_length = 100
