@@ -157,7 +157,8 @@ html {
     background: #8A2BE2;
     border-bottom: 1px solid black;
 }
-li .gap{
+
+li .gap {
     margin-top: 100px;
 }
 
@@ -186,8 +187,10 @@ li .gap{
     margin-top: 85px;
     margin-left: 10px;
     text-align: center;
+    width: 100%;
 }
-.content label{
+
+.content label {
     font-family: Quicksand;
     font-size: 3em;
     line-height: 24px;
@@ -429,7 +432,8 @@ textarea {
     justify-content: center;
     align-items: center;
 }
-.centered2{
+
+.centered2 {
     width: 100vw;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -439,31 +443,37 @@ textarea {
     justify-content: center;
     align-items: center;
 }
-.centered input{
+
+.centered input {
     transition: 0.3s;
     background-color: black;
     color: white;
     margin: 0px 250px;
     border-radius: 10px;
 }
-.centered input:hover{
+
+.centered input:hover {
     transition: 0.5s ease-in-out;
     transform: scale(1.2);
 }
-.centered2 input{
+
+.centered2 input {
     background-color: black;
     color: white;
     margin: 0px 250px;
     border-radius: 10px;
 }
-.centered input:hover{
+
+.centered input:hover {
     color: black;
     background-color: white;
 }
-.centered2 input:hover{
+
+.centered2 input:hover {
     color: black;
     background-color: white;
 }
+
 .model {
     display: flex;
     justify-content: center;
@@ -521,11 +531,13 @@ textarea {
     content: 'nion';
     transition: 0.5s ease-out;
 }
-.fix{
+
+.fix {
     text-align: center;
     /* margin: 0 50%; */
 }
-.inputbtn{
+
+.inputbtn {
     scale: 1;
 }
 
@@ -550,5 +562,14 @@ textarea {
     100% {
         opacity: 1;
         visibility: visible;
+    }
+}
+
+@media only screen and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+    [class*="col-"] {
+        width: 100%;
+    }
+    h1{
+        font-size: 1em;
     }
 }
