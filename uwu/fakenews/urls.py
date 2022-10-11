@@ -1,6 +1,10 @@
 from django.urls import path,include
 from . import views
 
+landing = lambda request : redirect("/fakenews/")
+
 urlpatterns = [
-    path("",views.index),
+    path("", landing),
+    path("fakenews/",views.index),
+    path("retrain/", views.retrain)
 ]

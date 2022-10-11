@@ -8,11 +8,18 @@ def index(request):
     if request.method == "POST":
         news = request.POST.get("news")
         prediction = predict(news)
-
+        prediction = list(prediction[0])
+        prediction[1] *= 100
+        
         context["news"] = news
         context["prediction"] = prediction
 
     return render(request, "index.html", context)
+
+def retrain(request):
+    print(dict(request.POST))
+    
+    return redirect("/")
 
 
 
