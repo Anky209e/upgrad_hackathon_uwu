@@ -152,7 +152,7 @@ html {
 #menu.open {
     height: 270px;
     width: 100%;
-    background: #f3581b;
+    background: #d600ff;
     border-bottom: 1px solid black;
 }
 li .gap{
@@ -495,7 +495,7 @@ textarea {
 
 .model h1:hover span {
     color: #d600ff;
-    transition: 2s;
+    transition: 2s ease-out;
     text-shadow: 0 0 10px #d600ff,
         0 0 20px #d600ff,
         0 0 40px #d600ff,
@@ -506,14 +506,17 @@ textarea {
 
 .model h1:hover span:nth-child(1)::after {
     content: 'nited';
+    transition: 0.5s ease-out;
 }
 
 .model h1:hover span:nth-child(2)::after {
     content: 'eebs ';
+    transition: 0.5s ease-out;
 }
 
 .model h1:hover span:nth-child(3)::after {
     content: 'nion';
+    transition: 0.5s ease-out;
 }
 .fix{
     text-align: center;
