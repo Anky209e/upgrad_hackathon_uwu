@@ -19,6 +19,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
+    path("",)
     path('admin/', admin.site.urls),
-    path('',include('taxi.urls')),
+    path('taxi/',include('taxi.urls')),
+    path("fakenews/",include('fakenews.urls')),
 ]+static(settings.MEDIA_URL, doccument_root=settings.MEDIA_ROOT)
