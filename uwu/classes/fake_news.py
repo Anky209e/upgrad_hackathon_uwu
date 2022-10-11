@@ -9,8 +9,8 @@ from tensorflow.keras.models import load_model
 def softmax(x):
     e_x = np.exp(x - np.max(x))
     return e_x / e_x.sum()
-
-tokenizer = Tokenizer(oov_token="<OOV>")
+with tf.device('/cpu:0'):
+    tokenizer = Tokenizer(oov_token="<OOV>")
 
 
 with open('data/fake_news.json','r') as f:
@@ -19,10 +19,9 @@ with open('data/fake_news.json','r') as f:
 sentences = datastore["inputs"]
 labels = datastore["targets"]
 
-
-tokenizer.fit_on_texts(sentences)
 with tf.device('/cpu:0'):
-    model = load_model("weights/fake_news_99.h5")
+    tokenizer.fit_on_texts(sentences)
+
 vocab_size = 10000
 embedding_dim = 16
 max_length = 100
@@ -54,15 +53,16 @@ def get_retrain_data(input,target):
 
 
 def predict(text):
-    
-    test = [text]
-    test_seq = tokenizer.texts_to_sequences(test)
-    test_pad = pad_sequences(test_seq,maxlen=max_length,padding=padding_type,truncating=trunc_type)
+    with tf.device('/cpu:0'):
+        model = load_model("weights/fake_news_99.h5")
+        test = [text]
+        test_seq = tokenizer.texts_to_sequences(test)
+        test_pad = pad_sequences(test_seq,maxlen=max_length,padding=padding_type,truncating=trunc_type)
 
-    padded = np.array(test_pad)[:100]
-    print(len(padded))
+        padded = np.array(test_pad)[:100]
+        print(len(padded))
 
-    result = model.predict(padded)
+        result = model.predict(padded)
 
     value = result[0][0]
     other_val = 1-value
