@@ -1,7 +1,7 @@
-from attr import fields
+
 from django import forms
-from django import forms
-from matplotlib import widgets
+
+
 from . import models
 
 class TaxiForm(forms.ModelForm):
@@ -10,5 +10,6 @@ class TaxiForm(forms.ModelForm):
         fields='__all__'
 
         widgets ={
-            'date': forms.DateTimeInput(attrs={'type':'datetime'})
-        }
+            'date': forms.DateTimeInput(attrs={'type':'date'}),
+            'time': forms.TimeInput(attrs={'type':'time'})
+        }   
