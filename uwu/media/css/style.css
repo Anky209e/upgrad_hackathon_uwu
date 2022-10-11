@@ -6,7 +6,7 @@ body {
     /* height: 100vh; */
     overflow: scroll;
     /* cursor:url("http://www.javascriptkit.com/dhtmltutors/cursor-hand.gif"), url(foo.cur), auto; */
-    cursor: url(/media/cursor.png), auto;
+    cursor: url(/media/images/cursor.png), auto;
 }
 
 ::selection {
