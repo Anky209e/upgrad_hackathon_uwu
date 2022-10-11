@@ -1,0 +1,492 @@
+html,
+body {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    /* height: 100vh; */
+    overflow: scroll;
+    /* cursor:url("http://www.javascriptkit.com/dhtmltutors/cursor-hand.gif"), url(foo.cur), auto; */
+    cursor: url(/media/cursor.png), auto;
+}
+
+::selection {
+    color: white;
+    background: black;
+}
+
+html {
+    background: white;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+#container {
+    z-index: 111;
+}
+
+.navT {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-transition: all 0.25s;
+    z-index: 111;
+    cursor: pointer;
+    width: 100%;
+    background: white;
+    height: 65px;
+    left: 0;
+    top: 0;
+    position: fixed;
+
+}
+
+.navT .icon {
+    -webkit-transition: all 0.25s;
+    position: absolute;
+    width: 30px;
+    height: 1px;
+    left: 15px;
+    top: 30px;
+    background-color: white;
+}
+
+.navT .icon:before,
+.navT .icon:after {
+    -webkit-transition: all 0.25s;
+    width: 30px;
+    height: 1px;
+    left: 0;
+    background: white;
+    position: absolute;
+    content: "";
+}
+
+.navT .icon:before {
+    top: -10px;
+}
+
+.navT .icon:after {
+    top: 10px;
+}
+
+.navT:hover {
+    /* cursor: url('/media/noun.png'), auto;	 */
+}
+
+.navT:hover .icon:before {
+    top: -12px;
+}
+
+.navT:hover .icon:after {
+    top: 12px;
+}
+
+.navT.active .icon {
+    -webkit-transform: rotate(180deg);
+    background-color: transparent;
+    left: 10px;
+}
+
+.navT.active .icon:before,
+.navT.active .icon:after {
+    top: 0;
+}
+
+.navT.active .icon:before {
+    -webkit-transform: rotate(45deg);
+}
+
+.navT.active .icon:after {
+    -webkit-transform: rotate(-45deg);
+}
+
+#menu {
+    z-index: 111;
+    -webkit-transition: all 0.5s;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 65px;
+    font-size: 18px;
+    font-family: sans-serif;
+    font-weight: 100;
+    text-transform: uppercase;
+    width: 100%;
+    height: 0;
+    border-bottom: 1px solid transparent;
+    overflow: hidden;
+}
+
+#menu ul {
+    list-style: none;
+    padding: 0;
+    letter-spacing: 0.4em;
+}
+
+#menu li:first-child {
+    margin-top: 0;
+}
+
+#menu li {
+    -webkit-transition: all 0.2s;
+    margin-top: 20px;
+    padding: 5px 0;
+    color: white;
+}
+
+#menu a {
+    padding: 8px;
+    -webkit-transition: all 0.25s;
+    cursor: pointer;
+}
+
+#menu a:hover {
+    letter-spacing: 0.5em;
+    text-decoration: underline;
+}
+
+#menu.open {
+    height: 270px;
+    width: 100%;
+    background: #f3581b;
+    border-bottom: 1px solid black;
+}
+
+.space {
+    letter-spacing: 0;
+}
+
+.content {
+    width: 100%;
+    font-size: 20px;
+    font-family: sans-serif;
+    font-weight: 100;
+    -webkit-transition: top 0.5s;
+    position: absolute;
+    top: 65px;
+    margin: 0 auto;
+    scroll-behavior: smooth;
+}
+
+.content h1 {
+    font-family: Quicksand;
+    font-size: 3em;
+    line-height: 24px;
+    text-transform: uppercase;
+    margin-top: 85px;
+    margin-left: 10px;
+    text-align: center;
+}
+
+.content h2 {
+    font-family: Quicksand;
+    font-size: 1em;
+    text-transform: uppercase;
+    margin-top: 95px;
+    margin-left: 10px;
+    font-weight: 400;
+    letter-spacing: 0.5em;
+    text-align: center;
+}
+
+.content.shift {
+    top: 335px;
+}
+
+p {
+    max-width: 600px;
+    font-size: 0.75em;
+    line-height: 1.75em;
+    text-align: left;
+    margin-left: 10px;
+}
+
+#second {
+    left: 0;
+    width: 100%;
+    background: #999;
+    height: 600px;
+    margin-top: 200px;
+    text-align: center;
+}
+
+#second h1,
+#second h2 {
+    margin-right: 20px;
+}
+
+#second h1 {
+    padding-top: 40px;
+}
+
+#second p {
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+#third {
+    background: black;
+    width: 100%;
+    height: 300px;
+    padding-top: 50px;
+}
+
+#third h1 {
+    font-size: 5em;
+    color: white;
+    text-align: center;
+    margin-top: 50px;
+    font-weight: 100;
+}
+
+#third h5 {
+    margin-top: 100px;
+    color: white;
+    font-family: sans-serif;
+    font-weight: 200;
+    letter-spacing: 0.25em;
+    text-align: center;
+}
+
+#third .model .team {
+    /* margin-bottom: 700px; */
+    color: #f3581b;
+    /* font-family:Syncopate ; */
+}
+
+#bar {
+    width: 40%;
+    height: 200px;
+    margin: 0 auto;
+    border: 1px dashed white;
+}
+
+/* ======================================================== */
+
+.social-media {
+    height: 80vh;
+}
+
+.social-media-box {
+    position: relative;
+    width: 515px;
+    height: 500px;
+    margin-left: -150px;
+    margin-top: 175px;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transition: all 0.5s;
+    transform: perspective(1000px);
+}
+
+.social-media-box>div {
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-animation: fadeInUp cubic-bezier(0.85, 0.17, 0.25, 1) 1s both;
+    animation: fadeInUp cubic-bezier(0.85, 0.17, 0.25, 1) 1s both;
+}
+
+.social-media-box>div:nth-child(4n + 1) {
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+.social-media-box>div:nth-child(3n + 4) {
+    -webkit-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+}
+
+.social-media-box>div:nth-child(4n + 4) {
+    -webkit-animation-delay: 0.7s;
+    animation-delay: 0.7s;
+}
+
+.social-media-box>.love2,
+.social-media-box>.love,
+.social-media-box>.music {
+    -webkit-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+}
+
+.social-media-bg {
+    top: 25px;
+    right: 0;
+    transform: translateZ(0);
+}
+
+.mail {
+    right: 60px;
+    bottom: 200px;
+    transform: translateZ(10px);
+}
+
+.frame {
+    top: 5px;
+    right: 65px;
+    transform: translateZ(20px);
+    transform: translatey(100px);
+}
+
+.notification {
+    top: 250px;
+    right: 320px;
+    transform: translateZ(30px);
+}
+
+.message {
+    top: 25px;
+    left: 200px;
+    transform: translateZ(40px);
+}
+
+.like {
+    top: 310px;
+    left: 300px;
+    transform: translateZ(50px);
+}
+
+.pic {
+    bottom: 330px;
+    left: 360px;
+    transform: translateZ(60px);
+}
+
+.like2 {
+    top: 100px;
+    right: 10px;
+    transform: translateZ(70px);
+}
+
+.love2 {
+    bottom: 120px;
+    right: 20px;
+    transform: translateZ(30px);
+}
+
+.music {
+    top: 100px;
+    left: 60px;
+    transform: translateZ(30px);
+}
+
+.love {
+    top: 20px;
+    left: 140px;
+    transform: translateZ(30px);
+}
+
+textarea {
+    margin-top: 50px;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    resize: none;
+    overflow-y: hidden;
+
+    /* optional CSS */
+    border-image: linear-gradient(#790973, #00d4ff) 10;
+    border-width: 2px;
+    border-style: solid;
+    outline: 0;
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    font-weight: bold;
+    font-size: 1.4em;
+    color: #343434;
+}
+
+.centered {
+    width: 100vw;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.model {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: black;
+}
+
+.model h1 {
+    font-size: 10rem;
+    color: black;
+    cursor: pointer;
+}
+
+.model h1 span:nth-child(2) {
+    text-transform: lowercase;
+}
+
+.model h1 span {
+    transition: 0.9s;
+}
+
+.model h1:hover span:nth-child(1) {
+    margin-left: 10px;
+    transition: 0.9s;
+}
+
+.model h1:hover span:nth-child(2) {
+    margin-left: 25px;
+    transition: 0.9s;
+}
+
+.model h1:hover span {
+    color: #d600ff;
+    transition: 2s;
+    text-shadow: 0 0 10px #d600ff,
+        0 0 20px #d600ff,
+        0 0 40px #d600ff,
+        0 0 80px #d600ff,
+        0 0 120px #d600ff,
+        0 0 160px #d600ff,
+}
+
+.model h1:hover span:nth-child(1)::after {
+    content: 'nited';
+}
+
+.model h1:hover span:nth-child(2)::after {
+    content: 'eebs ';
+}
+
+.model h1:hover span:nth-child(3)::after {
+    content: 'nion';
+}
+
+@-webkit-keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}

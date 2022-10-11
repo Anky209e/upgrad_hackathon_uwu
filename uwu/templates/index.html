@@ -1,36 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}News Detection{% endblock %}</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="/media/images/css/style.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Quicksand" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Syncopate" />
 </head>
+
 <body>
-    <form action="" method="post">
-        {%csrf_token%}
-        <label for="news">Content or Headline</label>
-        <br>
-        <textarea name="news" id="" cols="60" rows="10" minlength="50" required>{{news}}</textarea>
-
-        <br>
-        <input type="submit" value="Submit">
-    </form>
-
-    {% if prediction %}
-        <div class="prediction">
-            
-            <label>{{prediction.0}}</label>
-            <progress value="{{prediction.1}}" max="1"></progress> {{prediction.1}}
+    <main>
+        <div id="container">
+            <div class="navT">
+                <img src="/media/images/noun.png" alt="" height="60px" width="60px">
+                <div class="icon"></div>
+            </div>
+            <div id="menu">
+                <ul>
+                    <li><a>Hom<span class="space">e</span></a></li>
+                    <li><a>Abou<span class="space">t</span></a></li>
+                    <li><a>Wor<span class="space">k</span></a></li>
+                    <li><a>Blo<span class="space">g</span></a></li>
+                    <li><a>Contac<span class="space">t</span></a></li>
+                </ul>
+            </div>
         </div>
 
-        <form action="/retrain/" method="post">
-            {% csrf_token %}
-            <input type="hidden" name="news" value="{{news}}">
-            Was the prediction correct?
-            <input type="checkbox" name="correct">
-            <input type="submit" value="Submit">
-        </form>
-    {% endif %}
+        <div class='content'>
+            <div id="first">
+                <h1> FAKE NEWS DETECTOR</h1>
+                <h2>A quick way of detecting whether a news is fake or not</h2>
+            </div>
+
+
+            <section class="social-media d-flex justify-content-center align-items-center">
+                <div class="rotate-box">
+                    <div class="social-media-box" data-tilt>
+                        <div class="social-media-bg">
+                            <img src="/media/images/social-media-bg.png" class="img-fluid">
+                        </div>
+                        <div class="mail">
+                            <img src="/media/images/uwu.png" class="img-fluid">
+                        </div>
+                        <div class="frame">
+                            <img src="/media/images/mainnews.png" class="img-fluid" height="300px" width="300px">
+                        </div>
+                        <div class="notification">
+                            <img src="/media/images/dog.png" class="img-fluid" height="100px" width="100px">
+                        </div>
+                        <div class="message">
+                            <img src="https://www.dropbox.com/s/xxhdty9e2sqhk14/message.png?raw=1" class="img-fluid">
+                        </div>
+                        <div class="like">
+                            <img src="/media/images/mic.png" class="img-fluid" height="100px" width="100px">
+                        </div>
+                        <div class="pic">
+                            <img src="/media/images/news.png" class="img-fluid">
+                        </div>
+                        <div class="like2">
+                            <img src="https://www.dropbox.com/s/bibez76tpdqobcm/like2.png?raw=1" class="img-fluid"
+                                height="30px" width="30px">
+                        </div>
+                        <div class="love2">
+                            <img src="https://www.dropbox.com/s/xngkn5h1ljqbpfi/love2.png?raw=1" class="img-fluid"
+                                height="40px" width="40px">
+                        </div>
+                        <div class="music">
+                            <img src="/media/images/music.png" class="img-fluid" height="90px" width="90px">
+                        </div>
+                        <div class="love">
+                            <img src="/media/images/heart.png" class="img-fluid" height="50px" width="50px">
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <div class="centered">
+                <form action="" method="post">
+                    {%csrf_token%}
+                    <label for="news">Enter News Here:</label>
+                    <br>
+                    <textarea name="news" id="" cols="60" rows="10" minlength="50" required>{{news}}</textarea>
+
+                    <br>
+                    <input type="submit" value="Submit">
+                </form>
+
+                {% if prediction %}
+                <div class="prediction">
+
+                    <label>{{prediction.0}}</label>
+                    <progress value="{{prediction.1}}" max="1"></progress> {{prediction.1}}
+                </div>
+
+                <form action="/retrain/" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="news" value="{{news}}">
+                    Was the prediction correct?
+                    <input type="checkbox" name="correct">
+                    <input type="submit" value="Submit">
+                </form>
+                {% endif %}
+            </div>
+
+            <div id="third">
+                <div class="model">
+                    <h1><span>U</span> <span>w</span> <span>U</span></h1>
+                    <h5>@ COPYRIGHT<span class="team"> Team UwU</span></h5>
+                </div>
+            </div>
+
+
+        </div>
+
+    </main>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js'></script>
+    <script src="/script.js"></script>
 </body>
+
 </html>
