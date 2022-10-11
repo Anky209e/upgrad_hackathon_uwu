@@ -9,8 +9,8 @@ def index(request):
         news = request.POST.get("news")
         prediction = predict(news)
         prediction = list(prediction[0])
-        prediction[1] *= 100
-        
+        print(prediction)
+
         context["news"] = news
         context["prediction"] = prediction
 

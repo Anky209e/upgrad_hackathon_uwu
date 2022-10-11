@@ -57,9 +57,16 @@ def predict(text):
         model = load_model("weights/fake_news_99.h5")
         test = [text]
         test_seq = tokenizer.texts_to_sequences(test)
+
+        for i in range(len(test_seq[0])):
+            if test_seq[0][i]>10000:
+                test_seq[0][i] = 1
+
+        print(test_seq[:30])
+
         test_pad = pad_sequences(test_seq,maxlen=max_length,padding=padding_type,truncating=trunc_type)
 
-        padded = np.array(test_pad)[:100]
+        padded = np.array(test_pad)
         print(len(padded))
 
         result = model.predict(padded)
