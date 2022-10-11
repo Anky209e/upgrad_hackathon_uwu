@@ -21,8 +21,8 @@
             </div>
             <div id="menu">
                 <ul>
-                    <li><a class="gap" >Hom<span class="space">e</span></a></li>
-                    <li><a class="gap" >Upcomin<span class="space">g ...</span></a></li>
+                    <li><a >Hom<span class="space">e</span></a></li>
+                    <li><a>Upcomin<span class="space">g ...</span></a></li>
                 </ul>
             </div>
         </div>
@@ -83,9 +83,9 @@
             
                     <label for="news">Enter News Here</label>
                     <br>
-                    <textarea name="news" id="" rows="2" minlength="50" placeholder="Type here..." required>{{news}}</textarea>
+                    <textarea name="news" id="" rows="4" minlength="50" placeholder="Type here..." required>{{news}}</textarea>
                     <br>
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Submit" onclick="play()">
                 </form>
             </div>
             <div class="centered2">
@@ -103,7 +103,7 @@
                     <input type="checkbox" name="correct">
             </div>
             <div class="centered2">
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Submit" onclick="play()">
                 </form>
             </div>
                 {% endif %}
@@ -124,5 +124,10 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js'></script>
     <script src="/media/js/script.js"></script>
 </body>
-
+<audio 
+src="/media/js/uwu_egirl.mp3"
+type = "audio/mpeg"
+id="jutsu"
+style="display:none;"
+></audio>
 </html>

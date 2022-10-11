@@ -128,12 +128,12 @@ html {
 
 
 #menu li:first-child {
-    margin-top: 0;
+    margin-top: 50px;
 }
 
 #menu li {
     -webkit-transition: all 0.2s;
-    margin-top: 20px;
+    margin-top: 80px;
     padding: 5px 0;
     color: white;
 }
@@ -155,7 +155,7 @@ html {
     background: #f3581b;
     border-bottom: 1px solid black;
 }
-.gap{
+li .gap{
     margin-top: 100px;
 }
 

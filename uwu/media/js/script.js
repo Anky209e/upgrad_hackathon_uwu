@@ -14,3 +14,13 @@ $(".social-media-box").tilt({
     perspective: 1000,
     maxTilt: 50
 });
+
+// const audiotagDiv = document.getElementById('audiotag');
+// audiotagDiv.addEventListener('keypress',function(e){
+//     document.getElementById('jutsu').play();
+// })
+
+function play() {
+    var audio = document.getElementById("jutsu");
+    audio.play();
+}
