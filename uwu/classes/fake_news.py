@@ -29,6 +29,9 @@ trunc_type='post'
 padding_type='post'
 oov_tok = "<OOV>"
 training_size = 20000
+
+def retrain(datastore):
+    pass
     
 
 def get_retrain_data(input,target):
@@ -57,7 +60,7 @@ def get_retrain_data(input,target):
 
 def predict(text):
     with tf.device('/cpu:0'):
-        model = load_model("weights/fake_news_99.h5")
+        model = load_model("weights/fake_news_lstm_r2.h5")
         test = [text]
         test_seq = tokenizer.texts_to_sequences(test)
 
