@@ -10,6 +10,8 @@ def index(request):
         prediction = predict(news)
         prediction = list(prediction[0])
         print(prediction)
+        print(prediction)
+        prediction[1] = round(prediction[1]*100,2)
 
         context["news"] = news
         context["prediction"] = prediction

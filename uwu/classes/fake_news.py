@@ -5,6 +5,7 @@ from tensorflow.keras.preprocessing.text import Tokenizer
 import json
 import numpy as np
 from tensorflow.keras.models import load_model
+from tensorflow.keras.layers import Embedding, LSTM, Dense, Bidirectional
 
 def softmax(x):
     e_x = np.exp(x - np.max(x))
@@ -28,7 +29,35 @@ max_length = 100
 trunc_type='post'
 padding_type='post'
 oov_tok = "<OOV>"
-training_size = 20000
+
+def retrain(datastore):
+    train_sentences = datastore["inputs"]
+    train_targets = datastore["targets"]
+    train_sequences = tokenizer.texts_to_sequences(train_sentences)
+    train_padded = pad_sequences(train_sequences)
+    training_size = 40
+
+    training_sentences = train_sentences[0:training_size]
+    testing_sentences = train_sentences[training_size:]
+
+    training_labels = train_targets[0:training_size]
+    testing_labels = train_targets[training_size:]
+    training_sequences = tokenizer.texts_to_sequences(training_sentences)
+    training_padded = pad_sequences(training_sequences, maxlen=max_length, padding=padding_type, truncating=trunc_type)
+
+    testing_sequences = tokenizer.texts_to_sequences(testing_sentences)
+    testing_padded = pad_sequences(testing_sequences, maxlen=max_length, padding=padding_type, truncating=trunc_type)
+    training_padded = np.array(training_padded)
+    training_labels = np.array(training_labels)
+    testing_padded = np.array(testing_padded)
+    testing_labels = np.array(testing_labels)
+    print("Loading Model for retraining..")
+    model = load_model("weights/fake_news_lstm_r2.h5")
+    history = model.fit(training_padded, training_labels, epochs=3, validation_data=(testing_padded, testing_labels), verbose=2)
+    print("Saving new retrained weights..")
+    model.save('weights/fake_news_lstm_r2.h5')
+    print(history)
+    
     
 
 def get_retrain_data(input,target):
@@ -57,7 +86,7 @@ def get_retrain_data(input,target):
 
 def predict(text):
     with tf.device('/cpu:0'):
-        model = load_model("weights/fake_news_99.h5")
+        model = load_model("weights/fake_news_lstm_r2.h5")
         test = [text]
         test_seq = tokenizer.texts_to_sequences(test)
 
