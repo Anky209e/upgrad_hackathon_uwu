@@ -179,6 +179,15 @@ html {
     margin-left: 10px;
     text-align: center;
 }
+.content label{
+    font-family: Quicksand;
+    font-size: 3em;
+    line-height: 24px;
+    text-transform: uppercase;
+    margin-top: 85px;
+    margin-left: 10px;
+    text-align: center;
+}
 
 .content h2 {
     font-family: Quicksand;
@@ -396,11 +405,12 @@ textarea {
     border-style: solid;
     outline: 0;
     background: white;
-    border-radius: 20px;
+    border-radius: 60px;
     padding: 20px;
-    font-weight: bold;
-    font-size: 1.4em;
+    /* font-weight: bold; */
+    font-size: 20px;
     color: #343434;
+    text-align: center;
 }
 
 .centered {
@@ -411,7 +421,16 @@ textarea {
     justify-content: center;
     align-items: center;
 }
-
+.centered input{
+    background-color: black;
+    color: white;
+    margin: 0px 250px;
+    border-radius: 10px;
+}
+.centered input:hover{
+    color: black;
+    background-color: white;
+}
 .model {
     display: flex;
     justify-content: center;

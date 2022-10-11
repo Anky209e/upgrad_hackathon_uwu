@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-dko#$qel2-vpb_oi(&ifyz!n=81mspt0i4uqi7yg&b(=bqx2d^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

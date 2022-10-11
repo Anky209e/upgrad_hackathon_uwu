@@ -80,21 +80,23 @@
 
             </section>
 
-            <div class="centered">
+            
                 <form action="" method="post">
                     {%csrf_token%}
-                    <label for="news">Enter News Here:</label>
+            <div class="centered"></div>
+                    <label for="news">Enter News Here</label>
                     <br>
-                    <textarea name="news" id="" rows="1" minlength="50" placeholder="Type here..." required>{{news}}</textarea>
+                    <textarea name="news" id="" rows="2" minlength="50" placeholder="Type here..." required>{{news}}</textarea>
 
                     <br>
                     <input type="submit" value="Submit">
                 </form>
-
+            </div>
+            
                 {% if prediction %}
                 <div class="prediction">
-
-                    <progress value="{{prediction.1}}" max="100"></progress> {{prediction.1}}
+                    {{prediction.0}}
+                    <progress value="{{prediction.1}}" max="100"></progress> 
                 </div>
 
                 <form action="/retrain/" method="post">
@@ -105,7 +107,7 @@
                     <input type="submit" value="Submit">
                 </form>
                 {% endif %}
-            </div>
+            
 
             <div id="third">
                 <div class="model">
