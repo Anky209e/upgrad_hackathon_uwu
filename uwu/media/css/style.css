@@ -443,6 +443,10 @@ textarea {
     margin: 0px 250px;
     border-radius: 10px;
 }
+.centered input:hover{
+    transition: 0.5s ease-in-out;
+    transform: scale(1.2);
+}
 .centered2 input{
     background-color: black;
     color: white;
@@ -514,6 +518,9 @@ textarea {
 .fix{
     text-align: center;
     /* margin: 0 50%; */
+}
+.inputbtn{
+    scale: 1;
 }
 
 @-webkit-keyframes fadeInUp {
