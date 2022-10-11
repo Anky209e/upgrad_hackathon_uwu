@@ -1,5 +1,20 @@
 from django.shortcuts import render
+from classes.fake_news import predict
 
 # Create your views here.
 def index(request):
-    pass
+    context = {}
+
+    if request.method == "POST":
+        news = request.POST.get("news")
+        prediction = predict(news)
+
+        context["news"] = news
+        context["prediction"] = prediction
+
+    return render(request, "index.html", context)
+
+
+
+# def predict(news):
+#     return "Prediction"

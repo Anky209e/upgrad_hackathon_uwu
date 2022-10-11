@@ -38,19 +38,22 @@ def get_retrain_data(input,target):
     
     with open('data_pr.json','r') as f:
         datastore = json.load(f)
-    
 
 
-
-def predict_fake_news(text):
+def predict(text):
     
     test = [text]
     test_seq = tokenizer.texts_to_sequences(test)
     test_pad = pad_sequences(test_seq,maxlen=max_length,padding=padding_type,truncating=trunc_type)
 
-    result = model.predict(np.array(test_pad))
+    padded = np.array(test_pad)[:100]
+    print(len(padded))
+
+    result = model.predict(padded)
+
     value = result[0][0]
     other_val = 1-value
+    
     final_array = np.array([value,other_val])
     softmaxed_ar = softmax(final_array)
 
