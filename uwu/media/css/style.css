@@ -117,7 +117,7 @@ html {
     height: 0;
     border-bottom: 1px solid transparent;
     overflow: hidden;
-    /* opacity: 90%; */
+    opacity: 90%;
 }
 
 #menu ul {
@@ -128,18 +128,20 @@ html {
 
 
 #menu li:first-child {
-    margin-top: 50px;
+    margin-top: 0px;
 }
 
 #menu li {
     -webkit-transition: all 0.2s;
-    margin-top: 80px;
+    margin-top: 40px;
     padding: 5px 0;
     color: white;
 }
 
 #menu a {
+    color: white;
     padding: 8px;
+    text-decoration: none;
     -webkit-transition: all 0.25s;
     cursor: pointer;
 }
@@ -152,7 +154,7 @@ html {
 #menu.open {
     height: 270px;
     width: 100%;
-    background: #d600ff;
+    background: #8A2BE2;
     border-bottom: 1px solid black;
 }
 li .gap{
@@ -407,7 +409,7 @@ textarea {
 
     /* optional CSS */
     border-image: linear-gradient(#790973, #00d4ff) 10;
-    border-width: 2px;
+    border-width: 3px;
     border-style: solid;
     outline: 0;
     background: white;
@@ -438,6 +440,7 @@ textarea {
     align-items: center;
 }
 .centered input{
+    transition: 0.3s;
     background-color: black;
     color: white;
     margin: 0px 250px;
