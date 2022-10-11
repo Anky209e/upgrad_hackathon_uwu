@@ -29,23 +29,26 @@ trunc_type='post'
 padding_type='post'
 oov_tok = "<OOV>"
 training_size = 20000
-
-def is_trainable():
-    with open('data/retrain_news.json','r') as f:
-        datastore = json.load(f)
-    if (datastore["fake_targets"] >= 50) and (datastore["real_targets"] >= 50):
-        return True
-    return False
     
 
 def get_retrain_data(input,target):
     with open('data/retrain_news.json','r') as f:
         datastore = json.load(f)
 
-    datastore["inputs"].append(input)
-    datastore["target"].append(target)
-    datastore["fake_targets"]+=1
-    datastore["real_targets"]+=1
+    if datastore["real_targets"] < 50:
+        if target:
+            datastore["inputs"].append(input)
+            datastore["target"].append(target)
+            datastore["real_targets"]+=1
+    elif datastore["fake_targets"] < 50:
+        if not target:
+            datastore["inputs"].append(input)
+            datastore["target"].append(target)
+            datastore["fake_targets"]+=1
+    else:
+        retrain(datastore)
+
+
     json_object = json.dumps(datastore, indent=4)
 
     with open("data/retrain_news.json", "w") as outfile:
