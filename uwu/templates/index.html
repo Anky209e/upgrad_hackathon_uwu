@@ -31,7 +31,7 @@
 
         <div class='content'>
             <div id="first">
-                <h1> FAKE NEWS DETECTOR</h1>
+                <div class = "h1todiv"> FAKE NEWS DETECTOR</div>
                 <h2>A quick way of detecting whether a news is fake or not</h2>
             </div>
 
@@ -83,9 +83,9 @@
                 <form action="" method="post">
                     {%csrf_token%}
             
-                    <label for="news">Enter News Here</label>
+                    <label for="news" class="labeltoclass">Enter News Here</label>
                     <br>
-                    <textarea name="news" id="" rows="6" minlength="50" placeholder="Type here..." required>{{news}}</textarea>
+                    <textarea class = "textareatoclass" name="news" id="" rows="6" minlength="50" placeholder="Type here..." required>{{news}}</textarea>
                     <br>
                     <input class="inputbtn" type="submit" value="Submit" onclick="play()">
                 </form>

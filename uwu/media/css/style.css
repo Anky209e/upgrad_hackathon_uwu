@@ -144,11 +144,14 @@ html {
     text-decoration: none;
     -webkit-transition: all 0.25s;
     cursor: pointer;
+    
 }
 
 #menu a:hover {
-    letter-spacing: 0.5em;
-    text-decoration: none;
+    
+    text-shadow: 
+    0 -1.2em #000, 
+    0 0 #1095c1;
 }
 
 #menu.open {
@@ -179,7 +182,7 @@ li .gap {
     scroll-behavior: smooth;
 }
 
-.content h1 {
+.content .h1todiv {
     font-family: Quicksand;
     font-size: 3em;
     line-height: 24px;
@@ -565,11 +568,29 @@ textarea {
     }
 }
 
-@media only screen and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+@media only screen and (max-width: 600px) {
     [class*="col-"] {
         width: 100%;
     }
-    h1{
+    .content .h1todiv{
         font-size: 1em;
+        width: 100%;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .textareatoclass{
+        width: 70%;
+        margin-left: 15%;
+    }
+    label.labeltoclass{
+        width: 90%;
+        font-size: 30px;
+        margin-left: 10px;
+        font-family: Arial;
+        text-align: center;
+    }
+    #third{
+        width: 100%;
+        font-size: small;
+        height: 50vh;
     }
 }
