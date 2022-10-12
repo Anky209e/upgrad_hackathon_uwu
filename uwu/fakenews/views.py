@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from classes.fake_news import predict
 
+from django.shortcuts import redirect
+
 # Create your views here.
 def index(request):
     context = {}
