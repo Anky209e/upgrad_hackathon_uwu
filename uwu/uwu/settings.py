@@ -16,6 +16,7 @@ SECRET_KEY = 'django-insecure-dko#$qel2-vpb_oi(&ifyz!n=81mspt0i4uqi7yg&b(=bqx2d^
 DEBUG = True
 
 ALLOWED_HOSTS = ['*','127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ["https://uwu-fake-news.up.railway.app/","https://uwu.v1nland.xyz/"]
 
 
 # Application definition
