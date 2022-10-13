@@ -1,6 +1,14 @@
 {
-    "inputs":[],
-    "targets":[],
-    "fake_targets":0,
-    "real_targets":0
+    "inputs": [
+        "Ukraine's capital region was struck by Iranian-made kamikaze drones early on Thursday, officials said, sending rescue workers rushing to the scene as residents awoke to air raid sirens for the fourth consecutive morning following Russia's major assault across the country earlier this week. Kyiv regional governor Oleksiy Kuleba said the strike occurred in the area around the capital. It wasn't yet clear if there were any casualties.",
+        "Ukraine's capital region was struck by Iranian-made kamikaze drones early on Thursday, officials said, sending rescue workers rushing to the scene as residents awoke to air raid sirens for the fourth consecutive morning following Russia's major assault across the country earlier this week.",
+        "Prime Minister Narendra Modi flagged off the fourth Vande Bharat Express train on Thursday in Himachal Pradesh\u2019s Una district. This is the first Vande Bharat train for the state, which is set to hold assembly elections soon. \u201cThe semi-high-speed train will run between Delhi and Amb Andaura. It will run on all days except Wednesdays,\u201d a senior railways official had told HT on Wednesday. In a video tweeted by union minister Bhupender Yadav, PM Modi was seen flagging off the train."
+    ],
+    "targets": [
+        1,
+        1,
+        1
+    ],
+    "fake_targets": 0,
+    "real_targets": 3
 }

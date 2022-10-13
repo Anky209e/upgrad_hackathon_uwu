@@ -35,7 +35,7 @@ def retrain(datastore):
     train_targets = datastore["targets"]
     train_sequences = tokenizer.texts_to_sequences(train_sentences)
     train_padded = pad_sequences(train_sequences)
-    training_size = 40
+    training_size = 90
 
     training_sentences = train_sentences[0:training_size]
     testing_sentences = train_sentences[training_size:]
@@ -45,8 +45,8 @@ def retrain(datastore):
     training_sequences = tokenizer.texts_to_sequences(training_sentences)
     training_padded = pad_sequences(training_sequences, maxlen=max_length, padding=padding_type, truncating=trunc_type)
 
-    testing_sequences = tokenizer.texts_to_sequences(testing_sentences)
     testing_padded = pad_sequences(testing_sequences, maxlen=max_length, padding=padding_type, truncating=trunc_type)
+    testing_sequences = tokenizer.texts_to_sequences(testing_sentences)
     training_padded = np.array(training_padded)
     training_labels = np.array(training_labels)
     testing_padded = np.array(testing_padded)
@@ -60,23 +60,30 @@ def retrain(datastore):
     
     
 
-def get_retrain_data(input,target):
+def get_retrain_data(feature,target):
+    
     with open('data/retrain_news.json','r') as f:
         datastore = json.load(f)
 
     if datastore["real_targets"] < 50:
         if target:
-            datastore["inputs"].append(input)
-            datastore["target"].append(target)
+            datastore["inputs"].append(feature)
+            datastore["targets"].append(target)
             datastore["real_targets"]+=1
     elif datastore["fake_targets"] < 50:
         if not target:
-            datastore["inputs"].append(input)
-            datastore["target"].append(target)
+            datastore["inputs"].append(feature)
+            datastore["targets"].append(target)
             datastore["fake_targets"]+=1
     else:
         retrain(datastore)
 
+        datastore = {
+            "inputs":[],
+            "targets":[],
+            "fake_targets":0,
+            "real_targets":0
+        }
 
     json_object = json.dumps(datastore, indent=4)
 

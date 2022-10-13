@@ -1,9 +1,8 @@
 from django.shortcuts import render
-from classes.fake_news import predict
-
 from django.shortcuts import redirect
 
-# Create your views here.
+from classes.fake_news import predict, get_retrain_data
+
 def index(request):
     context = {}
 
@@ -11,8 +10,6 @@ def index(request):
         news = request.POST.get("news")
         prediction = predict(news)
         prediction = list(prediction[0])
-        print(prediction)
-        print(prediction)
         prediction[1] = round(prediction[1]*100,2)
 
         context["news"] = news
@@ -21,8 +18,18 @@ def index(request):
     return render(request, "index.html", context)
 
 def retrain(request):
-    print(dict(request.POST))
-    
+    if request.method == "POST":
+        news = request.POST["news"]
+        pred = request.POST["pred"]
+        correct = request.POST["correct"]
+        
+        if correct == "yes":
+            target = (pred == "Real")
+        else:
+            target = (pred == "Fake")
+        
+        get_retrain_data(news, int(target))
+            
     return redirect("/")
 
 

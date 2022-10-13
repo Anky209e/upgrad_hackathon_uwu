@@ -193,7 +193,7 @@ li .gap {
     width: 100%;
 }
 
-.content label {
+.news-label {
     font-family: Quicksand;
     font-size: 3em;
     line-height: 24px;
@@ -201,6 +201,10 @@ li .gap {
     margin-top: 85px;
     margin-left: 10px;
     text-align: center;
+}
+.feedback-label {
+    font-family: Quicksand;
+    font-weight: bold;
 }
 
 .content h2 {
@@ -403,6 +407,9 @@ p {
     top: 20px;
     left: 140px;
     transform: translateZ(30px);
+}
+.news-label {
+
 }
 
 textarea {
