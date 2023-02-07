@@ -15,10 +15,10 @@ $(".social-media-box").tilt({
     maxTilt: 50
 });
 
-// const audiotagDiv = document.getElementById('audiotag');
-// audiotagDiv.addEventListener('keypress',function(e){
-//     document.getElementById('jutsu').play();
-// })
+const audiotagDiv = document.getElementById('audiotag');
+audiotagDiv.addEventListener('keypress',function(e){
+    document.getElementById('jutsu').play();
+})
 
 function play() {
     var audio = document.getElementById("jutsu");
